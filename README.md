@@ -1,4 +1,4 @@
-# blog_data
+# Blog_Content
 In this repo I store all my python files that are eventually uploaded to my [blog][1]. Also
 included is the data produced from my blog. Working on this repo provides me with experience
 working on github and collaborating with my friends, CJ and Adam. 
