@@ -35,7 +35,7 @@ tweet_words <- df %>%
          str_detect(word, "[a-z]")) # Removing 'stop words' 
 
 ################################################################
-############             Analyzing data           ##############
+############             Exploring data           ##############
 ################################################################
 women_top_words <- tweet_words %>% # Dataset of top words from female tweeters
   filter(Sex == 'F') %>%
@@ -52,9 +52,16 @@ ggplot(data = subset(men_top_words, n > 1000))+
   labs(title = "Top Words used by Male Tweeters",
        y = "Number of Instances", x = "Word")
 
+ggplot(data = subset(women_top_words, n > 730))+
+  geom_bar(aes(factor(word), y = n), stat = 'identity', fill = 'darkorange', colour = 'dodgerblue')+
+  coord_flip(ylim = c(0,2400))+
+  labs(title = "Top Words used by Female Tweeters",
+       y = "Number of Instances", x = "Word")
 
 
-
+################################################################
+############             Analyzing data           ##############
+################################################################
 
 
 
