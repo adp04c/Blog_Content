@@ -49,19 +49,30 @@ men_top_words <- tweet_words %>% # Dataset of top words from male tweeters
 ggplot(data = subset(men_top_words, n > 1000))+
   geom_bar(aes(factor(word), y = n), stat = 'identity', fill = 'darkorange', colour = 'dodgerblue')+
   coord_flip(ylim = c(0,3200))+
-  labs(title = "Top Words used by Male Tweeters",
+  labs(title = "Top Words Used by Male Tweeters",
        y = "Number of Instances", x = "Word")
 
 ggplot(data = subset(women_top_words, n > 730))+
   geom_bar(aes(factor(word), y = n), stat = 'identity', fill = 'darkorange', colour = 'dodgerblue')+
   coord_flip(ylim = c(0,2400))+
-  labs(title = "Top Words used by Female Tweeters",
+  labs(title = "Top Words Used by Female Tweeters",
        y = "Number of Instances", x = "Word")
 
 
 ################################################################
 ############             Analyzing data           ##############
 ################################################################
+'We only want tweets pertaining to sports for our analysis since
+we are interested in asking how sportscasters talk about sports.
+Separating out the tweets about sports seems pretty difficult, 
+but the plan is to use some form of clustering to group the 
+tweets into two bins that hopefully separate out between sports
+and non-sports tweets.
+After separating out the tweets, we will move on to the sentiment
+analysis. We may attempt another clustering to group texts based 
+on whether they are about women or men sports as well.'
+
+# Clustering
 
 
 
