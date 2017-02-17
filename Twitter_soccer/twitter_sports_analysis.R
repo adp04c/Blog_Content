@@ -43,11 +43,11 @@ tweets_cleaned <- df %>%
 # Pulling a random sample of full tweets to train data set on for later clustering use
 sample <- tweets_cleaned[sample(nrow(tweets_cleaned), 5000), ]
 write.csv(sample, file = "~/Dropbox/Python/jupyter-blog/content/Twitter_soccer/sample.csv", row.names = FALSE)
-'From this sample, two new columns are added - "sports" and "Female".
-The "sports" column will be a dummy variable indicating whether 
-the tweet is about sports. The "Female" column will be a dummy
-variable indicating whether the tweet is about female athletes
-or teams.'
+'From this sample, two new columns are added - "Athletes" and 
+"Female". The "Athletes" column will be a dummy variable 
+indicating whether the tweet is about an athelete or team. The 
+"Female" column will be a dummy variable indicating whether the 
+tweet is about female athletes or teams.'
 
 ################################################################
 ############             Exploring data           ##############
