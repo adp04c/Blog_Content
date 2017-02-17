@@ -34,6 +34,21 @@ tweet_words <- df %>%
   filter(!word %in% stop_words$word,
          str_detect(word, "[a-z]")) # Removing 'stop words' 
 
+# Creating a dataframe of tweets without RT and links
+tweets_cleaned <- df %>% 
+  filter(!str_detect(Text, '^"') & !str_detect(Text, '^RT')) %>% # Removes tweets that are quotes or retweets as these are not the users' own words
+  mutate(Text = str_replace_all(Text, "https://t.co/[A-Za-z\\d]+|&amp;", "")) %>% # Removing links
+  mutate(Text = str_replace_all(Text, "http://t.co/[A-Za-z\\d]+|&amp;", "")) # Removing links
+
+# Pulling a random sample of full tweets to train data set on for later clustering use
+sample <- tweets_cleaned[sample(nrow(tweets_cleaned), 5000), ]
+write.csv(sample, file = "~/Dropbox/Python/jupyter-blog/content/Twitter_soccer/sample.csv", row.names = FALSE)
+'From this sample, two new columns are added - "sports" and "Female".
+The "sports" column will be a dummy variable indicating whether 
+the tweet is about sports. The "Female" column will be a dummy
+variable indicating whether the tweet is about female athletes
+or teams.'
+
 ################################################################
 ############             Exploring data           ##############
 ################################################################
@@ -73,6 +88,8 @@ analysis. We may attempt another clustering to group texts based
 on whether they are about women or men sports as well.'
 
 # Clustering
+'Website guidance: http://www.rdatamining.com/docs/twitter-analysis-with-r
+This includes guidance for LDA clustering'
 
 
 
